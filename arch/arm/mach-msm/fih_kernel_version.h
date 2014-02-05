@@ -1,0 +1,1 @@
+#define FIH_KERNEL_VERSION "0000"

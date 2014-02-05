@@ -1,0 +1,2190 @@
+*-----------------------------------------------------------------------------
+*       0.001.0059                                       2011/3/3 16:00
+*-----------------------------------------------------------------------------
+Team:   SW6-PT2
+Issuer: PG Huang
+Mark: DIV6-PT2-MM-PG-INIT_CODE-02
+IssueKeys:[SA4H7.B-597] 
+Summary: change init code of display driver 
+
+Do    : [Change]
+            - change init code of display driver 
+
+        [Symptom]
+            - EE request
+            
+        [Cause]
+            - EE request.
+            
+        [Solution]
+            - change it
+            
+        [Notes]
+            - None.
+
+        [Expose]
+            - None.
+            
+Files :
+		 * .\android\kernel\drivers\video\msm\lcdc_zyx_hvga_pt.c
+		 
+*-----------------------------------------------------------------------------
+*       0.001.0058                                       2011/2/24 14:30
+*-----------------------------------------------------------------------------
+Team:   SW2-5-1
+Issuer: Bryan Hsieh 
+Mark: none
+IssueKeys:[SA4H7.B-573] Add events alog for DbgCfgTool  "Copy log to SD" 
+Summary: Add events alog for DbgCfgTool "Copy log to SD" 
+
+Do    : [Change]
+            - Add events alog for DbgCfgTool "Copy log to SD"
+
+        [Symptom]
+            - None.
+            
+        [Cause]
+            - None.
+            
+        [Solution]
+            - Add events alog for DbgCfgTool "Copy log to SD"
+            
+        [Notes]
+            - None.
+
+        [Expose]
+            - None.
+            
+Files :
+		 * ./android/development/FIH/DbgCfgTool/GUI/src/com/fihspec/DbgCfgTool/TestOptions.java
+
+*-----------------------------------------------------------------------------
+*       0.001.0057                                       2011/2/24 11:55
+*-----------------------------------------------------------------------------
+Team:   SW2-5-1
+Issuer: Bryan Hsieh 
+Mark: SW2-5-1-BH-EventsLog-00
+IssueKeys:[SA4H7.B-573] Fix dialog mwssage when log size is too big
+Summary: Fix dialog mwssage when log size is too big  
+
+Do    : [Change]
+            - Fix dialog mwssage when log size is too big 
+
+        [Symptom]
+            - Wrong sting for system and events alog.
+            
+        [Cause]
+            - None.
+            
+        [Solution]
+            - Fix dialog mwssage when log size is too big
+        [Notes]
+            - None.
+
+        [Expose]
+            - None.
+            
+Files :
+		 * ./android/development/FIH/DbgCfgTool/GUI/src/com/fihspec/DbgCfgTool/logger_config.java
+
+*-----------------------------------------------------------------------------
+*       0.001.0056                                       2011/2/23 14:45
+*-----------------------------------------------------------------------------
+Team:   SW2-5-1
+Issuer: Bryan Hsieh 
+Mark: SW2-5-1-BH-EventsLog-00
+IssueKeys:[SA4H7.B-573] Add events alog for DbgCfgTool 
+Summary: Add events alog for DbgCfgTool 
+
+Do    : [Change]
+            - Add events alog for DbgCfgTool
+
+        [Symptom]
+            - None.
+            
+        [Cause]
+            - None.
+            
+        [Solution]
+            - Add events alog for DbgCfgTool
+            
+        [Notes]
+            - None.
+
+        [Expose]
+            - None.
+            
+Files :
+		 * ./android/external/klogd/loggerlauncher.c
+		 * ./android/system/core/logcat/logcat.cpp
+		 * ./android/development/FIH/DbgCfgTool/GUI/src/com/fihspec/DbgCfgTool/logger_config.java
+		 * ./android/development/FIH/DbgCfgTool/GUI/res/values/strings.xml
+		 * ./android/development/FIH/DbgCfgTool/GUI/res/layout/logger_config.xml
+
+*-----------------------------------------------------------------------------
+*       0.001.0055                                       2011/2/22 22:20
+*-----------------------------------------------------------------------------
+Team  : SW2-Div6-D1
+Issuer: Johnny Lin
+Mark: Div6-D1-JL-GetFIHVersionForSAX-00
+IssueKeys:[SA3F.B-344]
+Summary: SUT will pop up warning window when download image
+
+Do    : [Change]
+            - Modify the function about read FIH version data on SAX.
+
+        [Symptom]
+            - None
+
+        [Cause]
+            - Because SUT can't read correct FIH version.
+
+        [Solution]
+            - For SAX and FXX project, because the data and process are diferent, modify this for SAX.
+
+        [Notes]
+            - None.
+
+        [Expose]
+            - None.
+
+Files :
+
+            * ./android/kernel/drivers/usb/gadget/android.c
+
+*-----------------------------------------------------------------------------
+*       0.001.0054                                       2011/2/14 17:40
+*-----------------------------------------------------------------------------
+Team:   SW2-5-1
+Issuer: Jimmy Sung
+Mark:
+IssueKeys:[SA4H7.B-522]
+Summary: modified key event
+
+Do    : [Change]
+            - modified key event
+
+        [Symptom]
+            - None
+
+        [Cause]
+            - None
+
+        [Solution]
+            - None
+
+        [Notes]
+            - None.
+
+        [Expose]
+            - None.
+
+Files :
+
+            * ./FIHAdd-on/BSP/LINUX/android/development/FIH/FQC/src/com/fihtdc/fqc/activity/KeyBoardTest.java
+
+*-----------------------------------------------------------------------------
+*       0.001.0055                                       2011/2/10 18:30
+*-----------------------------------------------------------------------------
+Team:   SW2-5-1
+Issuer: Bryan Hsieh 
+Mark: None
+IssueKeys:[SA4H7.B-502] Add dump stack tool
+Summary: Add dump stack tool
+
+Do    : [Change]
+            - It's a debug tool for process stack dump.
+The stacklogs are saved in /data/stacklog/ with timestamp(_YYYYMMDD_HHMMSS) ex. stack_20100322_035143.
+The maximum number of stacklog is predefined (20), it can be modified by -n parameter, the oldest one will be deleted when it's full.
+Each stacklog will dump ps info first, then dump 
+There are some general/error information in alog for help to check stacklog status, ex:
+03-22 03:51:43.026 E/dumpstack( 1390): stack log files are more than 20, delete the oldest one
+03-22 03:51:43.026 E/dumpstack( 1390): command:rm /data/stacklog/stack_20100321_102537
+03-22 03:51:43.076 E/dumpstack( 1390): dump stack to /data/stacklog/stack_20100322_035143
+03-22 03:28:15.306 E/dumpstack( 1354): can't find name:aaa
+
+        [Symptom]
+            - None.
+            
+        [Cause]
+            - Driver impelementation needed.
+            
+        [Solution]
+            - Add a executable program in /system/bin
+            
+        [Notes]
+            - <usage>  dumpstack [-c] [-n rotate_number] [pids ... ] [pnames ...]
+-c => Enable console output, if it's present,  it must be first one parameter
+-n rotate_number => Define maximum number of stacklog (no more than 100), if it's present,  it must be first one or second parameter,
+pids => Dump specific process stack info by pid, can be assigned multiple pids mixed with pnames  
+pnames => Dump specific process stack info by pname , can be assigned multiple pids mixed with pids. 
+          the pname can be substring in pname (stat or cmdline)
+
+if there is no any pid or pname, it will dump all process stack
+Ex: dumpstack -c -n 30 1 2 android 300 100 rpc
+
+    dumpstack -c 
+            
+        [Expose]
+            - None.
+            
+Files :
+		 + ./android/external/klogd/dumpstack.c
+		 * ./android/external/klogd/Android.mk
+		 * ./android/system/core/rootdir/init.rc
+
+*-----------------------------------------------------------------------------
+*       0.001.0055                                       2011/2/10 18:20
+*-----------------------------------------------------------------------------
+Team:   SW2-5-1
+Issuer: Bryan Hsieh 
+Mark: None
+IssueKeys:[SA4H7.B-502] Add dump stack tool
+Summary: Add dump stack tool
+
+Do    : [Change]
+            - It's a debug tool for process stack dump.
+The stacklogs are saved in /data/stacklog/ with timestamp(_YYYYMMDD_HHMMSS) ex. stack_20100322_035143.
+The maximum number of stacklog is predefined (20), it can be modified by -n parameter, the oldest one will be deleted when it's full.
+Each stacklog will dump ps info first, then dump 
+There are some general/error information in alog for help to check stacklog status, ex:
+03-22 03:51:43.026 E/dumpstack( 1390): stack log files are more than 20, delete the oldest one
+03-22 03:51:43.026 E/dumpstack( 1390): command:rm /data/stacklog/stack_20100321_102537
+03-22 03:51:43.076 E/dumpstack( 1390): dump stack to /data/stacklog/stack_20100322_035143
+03-22 03:28:15.306 E/dumpstack( 1354): can't find name:aaa
+
+        [Symptom]
+            - None.
+            
+        [Cause]
+            - Driver impelementation needed.
+            
+        [Solution]
+            - Add a executable program in /system/bin
+            
+        [Notes]
+            - <usage>  dumpstack [-c] [-n rotate_number] [pids ... ] [pnames ...]
+-c => Enable console output, if it's present,  it must be first one parameter
+-n rotate_number => Define maximum number of stacklog (no more than 100), if it's present,  it must be first one or second parameter,
+pids => Dump specific process stack info by pid, can be assigned multiple pids mixed with pnames  
+pnames => Dump specific process stack info by pname , can be assigned multiple pids mixed with pids. 
+          the pname can be substring in pname (stat or cmdline)
+
+if there is no any pid or pname, it will dump all process stack
+Ex: dumpstack -c -n 30 1 2 android 300 100 rpc
+    dumpstack -c 
+            
+        [Expose]
+            - None.
+            
+Files :
+
+		 + ./android/external/klogd/dumpstack.c
+		 * ./android/external/klogd/Android.mk
+
+*-----------------------------------------------------------------------------
+*       0.001.0054                                       2011/1/28 14:20
+*-----------------------------------------------------------------------------
+Team  : SW2-Div6-D1
+Issuer: Johnny Lin
+Mark: Div6D1-JL-FixUsbTetheringOnC000-00
+IssueKeys:[SA4H7.B-393]
+Summary: DUT shows that it can enable USB tethering when it is never been connected with PC via USB cable.
+
+Do    : [Change]
+            - On QXDM mode, enable switch mechanism for USB Tethering.
+
+        [Symptom]
+            - For some lab test, USB switch mechanism is disable on QXDM mode. This just switch for USB tethering.
+            
+        [Cause]
+            - USB switch mechanism is disable on QXDM mode.
+            
+        [Solution]
+            - Just switch to enable interface for usb tethering.
+            
+        [Notes]
+            - None.
+            
+        [Expose]
+            - None.
+            
+Files :
+	* ./android/system/netd/UsbController.cpp
+	* ./android/system/netd/UsbController.h
+	* ./android/kernel/drivers/usb/gadget/android.c
+
+*-----------------------------------------------------------------------------
+*       0.001.0053                                       2011/1/26 16:50
+*-----------------------------------------------------------------------------
+Team:   SW2-5-1
+Issuer: Jimmy Sung
+Mark: 
+IssueKeys:[SA4H7.B-275]
+Summary: BTTool just eng build-in
+
+Do    : [Change]
+            - BTTool just eng mode build-in
+
+        [Symptom]
+            - None
+
+        [Cause]
+            - None
+
+        [Solution]
+            - None
+
+        [Notes]
+            - None.
+
+        [Expose]
+            - None.
+
+Files :
+
+            * ./FIHAdd-on/BSP/LINUX/android/development/FIH/BTTool/GUI/Android.mk
+            * ./FIHAdd-on/BSP/LINUX/android/development/FIH/BTTool/JNI/Android.mk
+
+*-----------------------------------------------------------------------------
+*       0.001.0052                                       2011/1/20 15:40
+*-----------------------------------------------------------------------------
+Team:   SW2-5-1
+Issuer: Bryan Hsieh 
+Mark: SW2-5-2-BH-EnhanceUI-00
+			SW2-5-1-BH-ADBLogConfig-00
+IssueKeys:[SA4H7.B-395] prevent user copy log to sd without reboot after disabling diag port related function
+Summary: prevent user copy log to sd without reboot after disabling diag port related function
+
+Do    : [Change]
+            - Prevent user copy log to sd without reboot after disabling diag port related function
+
+        [Symptom]
+            - Some SQA forgot to reboot device after unckecking USB_QXDM_MODE, and still copy log to SD,
+              it cause the efs log missing.
+            
+        [Cause]
+            - SQA forgot to reboot device.
+            
+        [Solution]
+            - when device happen the diag port related function is enable in "copy log to sd" function
+              create system Property "dbgcfgtool.needreboot" and assign value to 1
+            - If dbgcfgtool.needreboot = 1, can't copy log to sd excepter for reboot
+            
+        [Notes]
+            - None.
+            
+        [Expose]
+            - None.
+            
+Files :
+
+		 * ./android/development/FIH/DbgCfgTool/GUI/AndroidManifest.xml
+		 + ./android/development/FIH/DbgCfgTool/GUI/src/com/fihspec/DbgCfgTool/AdbLogConfig.java
+		 * ./android/development/FIH/DbgCfgTool/GUI/res/values/strings.xml
+		 * ./android/development/FIH/DbgCfgTool/GUI/res/xml/debug_driver_settings.xml
+		 + ./android/development/FIH/DbgCfgTool/GUI/res/layout/adb_log_config.xml
+		 * ./android/system/core/init/property_service.c
+
+*-----------------------------------------------------------------------------
+*       0.001.0051                                       2011/1/19 09:50
+*-----------------------------------------------------------------------------
+Team  : SW251-BSP
+Issuer: Jimmy Sung
+Mark  :
+PCR   : None
+IssueKeys:[SA4H7.B-339]
+
+Do    : [Change]
+           1. set FQC default is portriant mode
+
+              [Symptom]
+                     None
+
+        [Cause]
+                     None
+
+        [Solution]
+                     None
+
+                    [Note]
+                     None
+
+Files :
+        * ./FIHAdd-on/BSP/LINUX/android/development/FIH/FQC/AndroidManifest.xml
+
+*-----------------------------------------------------------------------------
+*       0.001.0050                                       2011/1/18 17:05
+*-----------------------------------------------------------------------------
+Team  : SW251-BSP
+Issuer: Jimmy Sung
+Mark  :
+PCR   : None
+IssueKeys:[SA4H7.B-339]
+
+Do    : [Change]
+           1. set FQC default is portriant mode
+
+              [Symptom]
+                     None
+
+        [Cause]
+                     None
+
+        [Solution]
+                     None
+
+                    [Note]
+                     None
+
+Files :
+        * ./FIHAdd-on/BSP/LINUX/android/development/FIH/FQC/AndroidManifest.xml
+
+*-----------------------------------------------------------------------------
+*       0.001.0049                                       2011/1/12 14:30
+*-----------------------------------------------------------------------------
+Team  : SW251-BSP
+Issuer: Jimmy Sung
+Mark  :
+PCR   : None
+IssueKeys:[SA4H7.B-81]
+
+Do    : [Change]
+                     removed module AP open failed
+
+              [Symptom]
+                     None
+
+        [Cause]
+                     None
+
+        [Solution]
+                     None
+
+                    [Note]
+                     None
+
+Files :
+        -.\SA7_Unique\BSP\LINUX\android\packages\CustomerApk\HWT\ModuleAP
+        * .\SA7_Unique\BSP\LINUX\android\device\qcom\msm7627_surf\msm7627_surf_SA7_HWT.mk     
+           
+*-----------------------------------------------------------------------------
+*       0.001.0048                                       2011/1/11 16:25
+*-----------------------------------------------------------------------------
+Team  : SW2-Div5-1
+Issuer: Jimmy Sung
+Mark  : 
+IssueKeys:[SA3F.B-169] 
+
+Do    : [Change]
+		     changed SA3 and FAA FQC camera test launch AP to android default camera AP
+
+	    [Symptom]
+		     None
+
+        [Cause]
+		     None
+
+        [Solution]
+		     None
+
+		[Note]
+		     None
+		     
+Files :
+        * ./FIHAdd-on/BSP/LINUX/android/development/FIH/FQC/src/com/fihtdc/fqc/ShowCameraTest.java
+        
+*-----------------------------------------------------------------------------
+*       0.001.0047                                       2011/1/7 17:10
+*-----------------------------------------------------------------------------
+Team  : SW2-Div5-D1
+Issuer: Jimmy Sung
+Mark  : 
+IssueKeys:[SA4H7.B-275] 
+
+Do    : [Change]
+		     modified FQC FM launch FM AP
+
+	    [Symptom]
+		     None
+
+        [Cause]
+		     None
+
+        [Solution]
+		     None
+
+		[Note]
+		     None
+		     
+Files :
+        * ./FIHAdd-on/BSP/LINUX/android/development/FIH/FQC/src/com/fihtdc/fqc/ShowFMTest.java
+                
+*-----------------------------------------------------------------------------
+*       0.001.0046                                       2011/1/7 15:50
+*-----------------------------------------------------------------------------
+Team  : SW2-Div6-D1
+Issuer: Johnny Lin
+Mark  : Div6-D1-JL-FixRamDump-00
+IssueKeys:[SA3F.B-137] 
+Do    : [Change]
+             -  Add error handling to avoid that access null pointer on RNDIS driver.
+
+	    [Symptom]
+             -  None.
+
+        [Cause]
+             -  System access null pointer on Rndis driver.
+
+        [Solution]
+             - Add error handling to avoid that access null pointer on RNDIS driver.
+
+		[Note]
+		     None
+		     
+Files :
+				* ./android/kernel/drivers/usb/gadget/f_rndis.c
+
+*-----------------------------------------------------------------------------
+*       0.001.0045                                       2011/1/7 10:35
+*-----------------------------------------------------------------------------
+Team  : SW251-BSP
+Issuer: Ronjon Lin
+Mark  : SW251-RL-ChargingCurrentByNV--
+IssueKeys:[SA4H7.B-198] 
+Do    : [Change]
+             1. In boot image,add the ac/usb charging current read from nv item into dbgcfgtool.c
+
+	    [Symptom]
+             -  The item is to determine the ac/usb charging current
+
+        [Cause]
+             -  The ac/usb charging current mechanism is changed dynamically by the nv item.
+
+        [Solution]
+             - Add the ac/usb charging current read from nv item into dbgcfgtool.c.
+
+		[Note]
+		     None
+		     
+Files :
+				* ./android/kernel/arch/arm/mach-msm/dbgcfgtool.c
+				* ./android/kernel/arch/arm/mach-msm/include/mach/dbgcfgtool.h
+*-----------------------------------------------------------------------------
+*       0.001.0044                                       2011/1/6 21:30
+*-----------------------------------------------------------------------------
+Team  : SW251-BSP
+Issuer: Ronjon Lin
+Mark  : None
+PCR   : None
+IssueKeys:[SA4H7.B-198] 
+
+Do    : [Change]
+             1. Fix the build error of not sa7 poject.
+
+	    [Symptom]
+             -  Error due to project dependency.
+
+        [Cause]
+             -  Error due to project dependency.
+
+        [Solution]
+             - None.
+
+		[Note]
+		     None
+		     
+Files :
+        * ./android/bootable/bootloader/lk/app/aboot/dbgcfgtool.c
+        * ./android/bootable/bootloader/lk/app/aboot/dbgcfgtool.h        
+*-----------------------------------------------------------------------------
+*       0.001.0043                                       2011/1/6 17:21
+*-----------------------------------------------------------------------------
+Team  : SW251-BSP
+Issuer: Ronjon Lin
+Mark  : SW251-RL-ChargingCurrentByNV--
+PCR   : None
+IssueKeys:[SA4H7.B-198] 
+
+Do    : [Change]
+             1. Add the ac/usb charging current read from nv item into dbgcfgtool.c
+
+	    [Symptom]
+             -  The item is to determine the ac/usb charging current
+
+        [Cause]
+             -  The ac/usb charging current mechanism is changed dynamically by the nv item.
+
+        [Solution]
+             - None.
+
+		[Note]
+		     None
+		     
+Files :
+        * ./android/bootable/bootloader/lk/app/aboot/dbgcfgtool.c
+*-----------------------------------------------------------------------------
+*       0.001.0043                                       2011/1/6 15:00
+*-----------------------------------------------------------------------------
+Team:   SW2-5-1
+Issuer: Jimmy Sung
+Mark:   none
+IssueKeys:[SA4H7.B-275]
+Summary: Added BTtool and wifiTest EMC tool in Image
+
+Do    : [Change]
+             - Added BTtool and wifiTest EMC tool in Image
+               Modified SD test string
+               Added FM test in FQC
+
+        [Symptom]
+             - None.
+
+        [Cause]
+             - None.
+
+        [Solution]
+             - None.
+
+        [Note]
+             - None.
+            
+Files :
+
+        * ./FIHAdd-on/BSP/LINUX/android/development/FIH/BTtool/JNI/Android.mk
+        * ./FIHAdd-on/BSP/LINUX/android/development/FIH/BTtool/GUI/Android.mk
+        * ./FIHAdd-on/BSP/LINUX/android/development/FIH/wifiTest/Android.mk
+        * ./FIHAdd-on/BSP/LINUX/android/development/FIH/wifiTestCommand/Android.mk
+        * ./FIHAdd-on/BSP/LINUX/android/development/FIH/FQC/src/com/fihtdc/fqc/activity/SDTestActivity.java
+        * ./FIHAdd-on/BSP/LINUX/android/development/FIH/FQC/AndroidManifest.xml
+        
+*-----------------------------------------------------------------------------
+*       0.001.0042                                       2011/1/5 13:50
+*-----------------------------------------------------------------------------
+Team:   SW2-5-1
+Issuer: Hebbel Chao
+Mark:   none
+IssueKeys:[SA3F.B-25]
+Summary: Add profile feature on DbgCfgTool
+
+Do    : [Change]
+             - Add profile feature on DbgCfgTool.
+
+        [Symptom]
+             - None.
+
+        [Cause]
+             - None.
+
+        [Solution]
+             - None.
+
+        [Note]
+             - Current we have two profile: Debug_Mode and Release_Mode.
+            
+Files :
+
+        + ./FIHAdd-on/BSP/LINUX/android/development/FIH/DbgCfgTool/GUI/src/com/fihspec/DbgCfgTool/ProfileManager.java
+        + ./FIHAdd-on/BSP/LINUX/android/development/FIH/DbgCfgTool/GUI/res/layout/profile_manager.xml
+        * ./FIHAdd-on/BSP/LINUX/android/development/FIH/DbgCfgTool/GUI/res/values/strings.xml
+        * ./FIHAdd-on/BSP/LINUX/android/development/FIH/DbgCfgTool/GUI/AndroidManifest.xml
+        * ./BSP/LINUX/android/system/core/rootdir/Android.mk
+        + ./BSP/LINUX/android/system/core/rootdir/etc/profile/Debug_Mode.xml
+        + ./BSP/LINUX/android/system/core/rootdir/etc/profile/Release_Mode.xml
+
+*-----------------------------------------------------------------------------
+*       0.001.0041                                       2010/12/28 10:20
+*-----------------------------------------------------------------------------
+Team  : SW252-BSP
+Issuer: Dennis Han
+Mark  : SW252-BSP-DH-FTM_ANDROID_SWITCH-01*
+PCR   : None
+IssueKeys:[SA4H7.B-197]
+
+Do    : [Change]
+                     Modify feature, user can switch FTM/OS on recovery mode.
+                     V-Up + menu key to enter FTM mode.
+                     V-Down + menu key to leave FTM mode.
+
+        [Symptom]
+                     SA4H7 has only two key combination (V-Up + Power, V-Down + Power) to enter download mode and recovery mode.
+            To add FTM/OS switch feature, and key combination on recovery mode to achieve this.
+
+        [Cause]
+                     None
+
+        [Solution]
+                     Port FTM/OS switching feature from SF4v5/SF4Y6.
+
+                    [Note]
+                     None
+
+Files :
+        *.\BSP\LINUX\android\bootable\recovery\default_recovery_ui.c
+        *.\BSP\LINUX\android\bootable\recovery\recovery_ui.h
+        *.\BSP\LINUX\android\bootable\recovery\ui.c
+*-----------------------------------------------------------------------------
+*       0.001.0040                                       2010/12/24 11:05
+*-----------------------------------------------------------------------------
+Team  : SW252-BSP
+Issuer: Dennis Han
+Mark  : SW252-BSP-DH-FTM_ANDROID_SWITCH-00
+PCR   : None
+IssueKeys:[SA4H7.B-197]
+
+Do    : [Change]
+                     Add feature, user can switch FTM/OS on recovery mode.
+
+        [Symptom]
+                     SA4H7 has only two key combination (V-Up + Power, V-Down + Power) to enter download mode and recovery mode.
+            To add FTM/OS switch feature, and key combination on recovery mode to achieve this.
+
+        [Cause]
+                     None
+
+        [Solution]
+                     Port FTM/OS switching feature from SF4v5/SF4Y6.
+
+                    [Note]
+                     None
+
+Files :
+        *.\BSP\LINUX\android\bootable\recovery\default_recovery_uui.c
+        *.\BSP\LINUX\android\bootable\recovery\recovery_ui.h
+        *.\BSP\LINUX\android\bootable\recovery\ui.c
+*-----------------------------------------------------------------------------
+*       0.001.0039                                       2010/12/15 18:05
+*-----------------------------------------------------------------------------
+Team  : SW251-BSP
+Issuer: Jimmy Sung
+Mark  :
+PCR   : None
+IssueKeys:[SA4H7.FC-3]
+
+Do    : [Change]
+                     Fixed module AP not build-in
+
+              [Symptom]
+                     None
+
+        [Cause]
+                     None
+
+        [Solution]
+                     None
+
+                    [Note]
+                     None
+
+Files :
+        *.\SA7_Unique\BSP\LINUX\android\packages\CustomerApk\HWT\ModuleAP\Android.mk
+
+*-----------------------------------------------------------------------------
+*       0.001.0038                                       2010/12/15 17:10
+*-----------------------------------------------------------------------------
+Team  : SW251-BSP
+Issuer: Jimmy Sung
+Mark  :
+PCR   : None
+IssueKeys:[SA4H7.FC-3]
+
+Do    : [Change]
+                     Fixed module AP open failed
+
+              [Symptom]
+                     None
+
+        [Cause]
+                     None
+
+        [Solution]
+                     None
+
+                    [Note]
+                     None
+
+Files :
+        +.\SA7_Unique\BSP\LINUX\android\packages\CustomerApk\HWT\ModuleAP\libIT7260-jni.so
+	*.\SA7_Unique\BSP\LINUX\android\packages\CustomerApk\HWT\ModuleAP\Android.mk
+        * .\SA7_Unique\BSP\LINUX\android\device\qcom\msm7627_surf\msm7627_surf_SA7_HWT.mk
+
+*-----------------------------------------------------------------------------
+*       0.001.0037                                       2010/12/14 16:40
+*-----------------------------------------------------------------------------
+Team  : SW251-BSP
+Issuer: Jimmy Sung
+Mark  :
+PCR   : None
+IssueKeys:[SA4H7.FC-3]
+
+Do    : [Change]
+                     Added module AP in 
+
+              [Symptom]
+                     None
+
+        [Cause]
+                     None
+
+        [Solution]
+                     None
+
+                    [Note]
+                     None
+
+Files :
+        +.\SA7_Unique\BSP\LINUX\android\packages\CustomerApk\HWT\ModuleAP
+	* .\SA7_Unique\BSP\LINUX\android\device\qcom\msm7627_surf\msm7627_surf_SA7_HWT.mk
+        
+*-----------------------------------------------------------------------------
+*       0.001.0036                                       2010/12/09 11:20
+*-----------------------------------------------------------------------------
+Team  : SW251-BSP
+Issuer: Jimmy Sung
+Mark  :
+PCR   : None
+IssueKeys:[SA4H7.FC-3]
+
+Do    : [Change]
+                     removed Proximity FQC test
+
+              [Symptom]
+                     None
+
+        [Cause]
+                     None
+
+        [Solution]
+                     None
+
+                    [Note]
+                     None
+
+Files :
+        *.\FIHAdd-on\BSP\LINUX\android\development\FIH\FQC\src\fihtdc\fqc\TestItemMenu.java
+
+*-----------------------------------------------------------------------------
+*       0.001.0036                                       2010/12/09 11:20
+*-----------------------------------------------------------------------------
+Team  : SW251-BSP 
+Issuer: Jimmy Sung
+Mark  : 
+PCR   : None
+IssueKeys:[SA4H7.FC-3] 
+
+Do    : [Change]
+		     removed Proximity FQC test
+
+	      [Symptom]
+		     None
+
+        [Cause]
+		     None
+
+        [Solution]
+		     None
+
+		    [Note]
+		     None
+		     
+Files :
+        *.\FIHAdd-on\BSP\LINUX\android\development\FIH\FQC\AndroidManifest.xml
+        *.\FIHAdd-on\BSP\LINUX\android\development\FIH\FQC\src\fihtdc\fqc\TestItemMenu.java
+        *.\FIHAdd-on\BSP\LINUX\android\development\FIH\FQC\src\fihtdc\fqc\testitem\ItemInformation.java
+
+        
+*-----------------------------------------------------------------------------
+*       0.001.0035                                       2010/12/02 15:20
+*-----------------------------------------------------------------------------
+Team  : SW251-BSP
+Issuer: Jimmy Sung
+Mark  : 
+PCR   : None
+IssueKeys:[SA4H7.B-29] 
+
+Do    : [Change]
+		     fixed FQC camera test fail bug
+
+	      [Symptom]
+		     None
+
+        [Cause]
+		     launch wrong function
+
+        [Solution]
+         modified launch function for main or front camera
+
+		    [Note]
+		     None
+		     
+Files :
+        *.\FIHAdd-on\BSP\LINUX\android\development\FIH\FQC\rec\value\string.xml
+        *.\FIHAdd-on\BSP\LINUX\android\development\FIH\FQC\src\fihtdc\fqc\ShowCameraTest.java
+        
+*-----------------------------------------------------------------------------
+*       0.001.0034                                       2010/12/01 14:55
+*-----------------------------------------------------------------------------
+Team  : SW251-BSP
+Issuer: Jimmy Sung
+Mark  : 
+PCR   : None
+IssueKeys:[SA4H7.B-29] 
+
+Do    : [Change]
+		     modified launch intent class name to launch Life sensor AP
+
+	     [Symptom]
+		     None
+
+        [Cause]
+		     intent class name wrong
+
+        [Solution]
+		     correct intent class name
+
+		[Note]
+		     None
+		     
+Files :
+        *.\FIHAdd-on\BSP\LINUX\android\development\FIH\FQC\src\fihtdc\fqc\ShowLifeSensorTest.java
+        
+*-----------------------------------------------------------------------------
+*       0.001.0033                                       2010/11/25 09:40
+*-----------------------------------------------------------------------------
+Team  : SW251-BSP
+Issuer: Ronjon Lin
+Mark  : 
+PCR   : None
+IssueKeys:[SA4H7.B-13] 
+
+Do    : [Change]
+             1. Add the KERNEL_DEFCONFIG=SA4H7_defconfig into prj_profile.sa7 for user build 
+
+	     [Symptom]
+             -  AP team request.
+
+        [Cause]
+             -  Can't user build.
+
+        [Solution]
+             - Add the KERNEL_DEFCONFIG=SA4H7_defconfig into prj_profile.sa7 for user build .
+
+		[Note]
+		     None
+		     
+Files :
+        *.\scripts\configs\prj_profile.sa7
+*-----------------------------------------------------------------------------
+*       0.001.0032                                       2010/11/23 15:40
+*-----------------------------------------------------------------------------
+Team  : SW251-BSP
+Issuer: Jimmy Sung
+Mark  :
+PCR   : None
+IssueKeys:[SA4H7.FC-1] fixed keyboard test bug
+
+Do    : [Change]
+             - fixed keyboard test bug
+
+        [Symptom]
+             - None.
+
+        [Cause]
+             - lost setup SENSOR key event
+
+        [Solution]
+             - current SA7 keyboard key event
+
+        [Note]
+             - None
+
+Files :
+        +./SA7_Unique/BSP/LINUX/android/development/FQC/src/com/fihtdc/fqc/activity/KeyBoardTest.java
+
+*-----------------------------------------------------------------------------
+*       0.001.0031                                       2010/11/23 15:20
+*-----------------------------------------------------------------------------
+Team  : SW251-BSP
+Issuer: Jimmy Sung
+Mark  :
+PCR   : None
+IssueKeys:[SA4H7.FC-1] rollback
+
+Do    : [Change]
+             - rollback
+
+        [Symptom]
+             - None.
+
+        [Cause]
+             - none
+
+        [Solution]
+             - none
+
+        [Note]
+             - None
+
+Files :
+        *./android/development/FQC/src/com/fihtdc/fqc/activity/KeyBoardTest.java
+
+*-----------------------------------------------------------------------------
+*       0.001.0030                                       2010/11/23 14:00
+*-----------------------------------------------------------------------------
+Team  : SW251-BSP
+Issuer: Jimmy Sung
+Mark  :
+PCR   : None
+IssueKeys:[SA4H7.B-55] fixed keyboard test bug
+
+Do    : [Change]
+             - fixed keyboard test bug
+
+        [Symptom]
+             - None.
+
+        [Cause]
+             - lost setup SENSOR key event
+
+        [Solution]
+             - current SA7 keyboard key event
+
+        [Note]
+             - None
+
+Files :
+        *./android/development/FQC/src/com/fihtdc/fqc/activity/KeyBoardTest.java
+
+*-----------------------------------------------------------------------------
+*       0.001.0029                                       2010/11/11 13:50
+*-----------------------------------------------------------------------------
+Team  : SW251-BSP
+Issuer: Jimmy Sung
+Mark  :
+PCR   : None
+IssueKeys:[SA4H7.FC-1] use SA3 pixel color for SA7 pixel color test
+
+Do    : [Change]
+             - use SA3 pixel color for SA7 pixel color test
+
+        [Symptom]
+             - None.
+
+        [Cause]
+             - pixel color has two test item in SA7 device because not use project flag to seperate
+
+        [Solution]
+             - current SA7 pixel color test
+
+        [Note]
+             - None
+
+Files :
+	*./android/development/FQC/AndroidManifest.xml
+	*./android/development/FQC/src/com/fihtdc/fqc/testitem/ItemInformation.java
+	*./android/development/FQC/src/com/fihtdc/fqc/TestItemMenu.java
+
+*-----------------------------------------------------------------------------
+*       0.001.0028                                       2010/11/11 11:40
+*-----------------------------------------------------------------------------
+Team  : SW251-BSP
+Issuer: Jimmy Sung
+Mark  :
+PCR   : None
+IssueKeys:[SA4H7.FC-1] modified button light test filenote place
+
+Do    : [Change]
+             - modified button light test filenote place
+
+        [Symptom]
+             - None.
+
+        [Cause]
+             - incorrent filenote control place
+
+        [Solution]
+             - corrent filenote control place
+
+        [Note]
+             - None
+
+Files :
+        *.\android\development\FIH\FQC\src\com\fihtdc\fqc\KeyLightControllerSA3.java
+        *.\android\development\FIH\FQC\src\com\fihtdc\fqc\ShowKeyboardLight.java
+
+*-----------------------------------------------------------------------------
+*       0.001.0027                                       2010/11/09 16:40
+*-----------------------------------------------------------------------------
+Team  : SW251-BSP
+Issuer: Jimmy Sung
+Mark  : 
+PCR   : None
+IssueKeys:[SA4H7.FC-1] modified button light test filenote place and change keyboard test keyboard layout
+
+Do    : [Change]
+             - modified button light test filenote place and change keyboard test keyboard layout
+
+        [Symptom]
+             - None.
+
+        [Cause]
+             - incorrent filenote control place
+
+        [Solution]
+             - corrent filenote control place
+
+        [Note]
+             - None
+
+Files :
+        *.\android\development\FIH\FQC\src\com\fihtdc\fqc\KeyLightControllerSA3.java
+        *.\android\development\FIH\FQC\res\controlssa7.png
+        
+*-----------------------------------------------------------------------------
+*       0.001.0026                                       2010/11/09 11:55
+*-----------------------------------------------------------------------------
+Team  : SW251-BSP
+Issuer: Ronjon Lin
+Mark  : SW251-RL-PowerOnBatThres-00++
+PCR   : None
+IssueKeys:[SA3F.B-140] 
+
+Do    : [Change]
+             1. Add the battery threshold check nv item into dbgcfgtool.c
+
+	    [Symptom]
+             -  The item is to determine the battery threshold is 3.5v or 3.3v
+
+        [Cause]
+             -  The battery threshold mechanism is changed dynamically by the nv item.
+
+        [Solution]
+             - None.
+
+		[Note]
+		     None
+		     
+Files :
+        * ./android/bootable/bootloader/lk/app/aboot/dbgcfgtool.c
+*-----------------------------------------------------------------------------
+*       0.001.0025                                       2010/11/08 20:05
+*-----------------------------------------------------------------------------
+Team  : SW251-BSP
+Issuer: Jimmy Sung
+Mark  : 
+PCR   : None
+IssueKeys:[SA4H7.FC-1] advance new BTtool version
+
+Do    : [Change]
+             - advance new BTtool version
+
+	    [Symptom]
+             - None.
+
+        [Cause]
+             - None.
+
+        [Solution]
+             - None.
+
+		[Note]
+		     None
+		     
+Files :
+        *./android/development/FIH/BTtool
+        
+*-----------------------------------------------------------------------------
+*       0.001.0024                                       2010/10/29 09:40
+*-----------------------------------------------------------------------------
+Team  : SW251-BSP
+Issuer: Ronjon Lin
+Mark  : 
+PCR   : None
+IssueKeys:[SA4H7.FC-1] 
+
+Do    : [Change]
+             1. Move the r of IMG_LIST2_FLAGS to IMG_LIST1_FLAGS
+
+	    [Symptom]
+             -  Add the model id into recovery image.
+
+        [Cause]
+             - None.
+
+        [Solution]
+             - None.
+
+		[Note]
+		     None
+		     
+Files :
+        *.\scripts\econfigs\prj_profile.sa7
+*-----------------------------------------------------------------------------
+*       0.001.0023                                       2010/10/29 09:40
+*-----------------------------------------------------------------------------
+Team  : SW251-BSP
+Issuer: Jimmy Sung
+Mark  : 
+PCR   : None
+IssueKeys:[SA3F.B-4] 
+
+Do    : [Change]
+             1. Added patch script for SA3 and SA7 project
+
+	    [Symptom]
+             - None.
+
+        [Cause]
+             - None.
+
+        [Solution]
+             - None.
+
+		[Note]
+		     None
+		     
+Files :
+        *.\scripts\extensions\patch_project.sh
+        
+*-----------------------------------------------------------------------------
+*       0.001.0022                                       2010/10/27 19:50
+*-----------------------------------------------------------------------------
+Team  : SW252-BSP
+Issuer: Steven Yang
+Mark  : SW2-5-2-SY-OTA-00
+PCR   : None
+IssueKeys:[SA4H7.FC-1] 
+
+Do    : [Change]
+             1. Enalbe OTA in SAX.
+
+	    [Symptom]
+             - None.
+
+        [Cause]
+             - None.
+
+        [Solution]
+             - None.
+
+		[Note]
+		     None
+		     
+Files :
+        *.\android\kernel\init\FIH_Kconfig
+        *.\android\bootable\recovery\recovery.c
+        *.\android\kernel\arch\arm\mach-msm\proc_comm.h
+
+*-----------------------------------------------------------------------------
+*       0.001.0021                                       2010/10/21 16:35
+*-----------------------------------------------------------------------------
+Team  : SW2-D6-MM
+Issuer: Kent Kwan
+Mark  : 
+IssueKeys:[SA4H7.B-37]
+Summary: Fix some camera menu settings cannot work
+
+Do    : [Change]
+            . Fix some camera menu settings cannot work
+
+        [Symptom]
+            . Some camera menu settings cannot work
+
+        [Cause]
+            . Not refresh sensor
+
+        [Solution]
+            . Refresh sensor
+
+        [Notes]
+            . None.
+
+Files :
+
+      * ./sa3/android/kernel/drivers/media/video/msm/mt9p111.c
+      * ./sa3/android/kernel/drivers/media/video/msm/mt9p111_reg.c
+      * ./LINUX/android/vendor/qcom/proprietary/mm-camera/targets/tgtcommon/sensor/mt9p111/mt9p111.c
+	  	              
+Reviewer:
+      Sendow Chen
+
+Review:
+        [History Details*]
+        [Code Review*]
+        [Verifications*]
+            [Function*]
+            [Quick Test]
+
+*-----------------------------------------------------------------------------
+*       0.001.0020                                       2010/10/20 12:10
+*-----------------------------------------------------------------------------
+Team:   SW251
+Issuer: Jimmy Sung
+Mark:
+IssueKeys:[SA4H7.FC-1]
+Summary:  fixed SA3 FQC pixel color, flash light, and keyboard light test item bug
+
+Do    : [Change]
+            . fixed SA3 FQC pixel color, flash light, and keyboard light test item bug
+            
+        [Symptom]
+            . None
+
+        [Cause]
+            . None        
+
+        [Solution]
+            . None
+
+        [Notes]
+            . None
+            
+Files :
+      * ./android/development/FIH/FQC/src/com/fihtdc/fqc/KeyLightControllerSA3.java
+      * ./android/development/FIH/FQC/src/com/fihtdc/fqc/ShowFlashLightSA3.java
+      - ./android/development/FIH/FQC/res/drawable/pixeltest2.bmp
+      - ./android/development/FIH/FQC/res/drawable/pixeltest.bmp
+      + ./android/development/FIH/FQC/res/drawable/pixeltest2.PNG
+      + ./android/development/FIH/FQC/res/drawable/pixeltest.PNG
+	  	              
+Reviewer:
+      Bryan Hsieh
+
+Review:
+        [History Details*]
+        [Code Review*]
+        [Verifications*]
+            [Function*]
+            [Quick Test]
+*-----------------------------------------------------------------------------
+*       0.001.0019                                       2010/10/15 21:15
+*-----------------------------------------------------------------------------
+Team:   SW251
+Issuer: Ronjon Lin 
+Mark:   SW251-RL-AddChargerTypeFromUSB-00+
+		SW251-RL-Periodically_wakeup-00+
+IssueKeys:[SA4H7.FC-1]
+Summary:  Get the charger type from USB driver and wake up periodically when plug in ac and low battery flag
+Do    : [Change]
+            . Get the charger type from USB driver and wake up periodically when plug in ac and low battery flag
+   			. wake up periodically when plug in ac and low battery flag         
+        [Symptom]
+            . None
+
+        [Cause]
+            . None        
+
+        [Solution]
+            . None
+
+        [Notes]
+            . None
+            
+Files :
+      * ./sa3/android/kernel/arch/arm/mach-msm/rtc-msm.c
+      * ./sa3/android/kernel/drivers/power/msm_battery.c
+      * ./sa3/android/kernel/drivers/usb/gadget/msm72k_udc_sax.c
+	  * ./BSP/LINUX/android/kernel/init/FIH_Kconfig
+	              
+Reviewer:
+      Pence Ko
+
+Review:
+        [History Details*]
+        [Code Review*]
+        [Verifications*]
+            [Function*]
+            [Quick Test]
+*-----------------------------------------------------------------------------
+*       0.001.0018                                       2010/10/15 17:15
+*-----------------------------------------------------------------------------
+Team:   SW2-5-1
+Issuer: Bryan Hsieh 
+Mark:   none
+IssueKeys:[F0XF.B-1107]
+Summary:  fix build flag
+
+Do    : [Change]
+            . Fix build flag.
+            
+        [Symptom]
+            . SA3 doesn't be effected.
+
+        [Cause]
+            . Wrong build flag.          
+
+        [Solution]
+            . Fix build flag.
+
+        [Notes]
+            . none
+            
+Files :
+
+				* ./android/kernel/arch/arm/mach-msm/proc_comm.c
+
+*-----------------------------------------------------------------------------
+*       0.001.0017                                       2010/10/15 13:35
+*-----------------------------------------------------------------------------
+Team  : SW2-6-Multimedia
+Issuer: Robert Chuang
+Mark  : SW2-6-MM-RC-Audio_Porting-02
+IssueKeys:[None]
+Summary: Configuring ADRC setting in BSP6030
+
+Do    : [Change]
+            - Configuring ADRC setting in BSP6030
+
+        [Symptom]
+            - None.
+
+        [Cause]
+            - None.
+
+        [Solution]
+            - None.
+
+        [Notes]
+            - None.
+
+        [Expose]
+            - No.
+
+Files :
+		* ./LINUX/android/hardware/msm7k/libaudio/AudioHardware.cpp
+		* ./Linux/android/hardware/msm7k/libaudio/AudioFilter_SAX.csv
+
+Reviewer:
+       Seven Lin
+       
+Review:
+        [History Details*]
+        [Code Review*]
+        [Verifications*]
+            [Function*]
+            [Quick Test] OK    
+*-----------------------------------------------------------------------------
+*       0.001.0016                                       2010/10/15 12:00
+*-----------------------------------------------------------------------------
+Team:   SW2-5-1
+Issuer: Bryan Hsieh 
+Mark:   none
+IssueKeys:[F0XF.B-1107]
+Summary: Diable ProGuard in DbgCfgTool module
+
+Do    : [Change]
+            . add the following statement in makefile to disable ProGuard in DbgCfgTool module.	LOCAL_PROGUARD_ENABLED := disabled
+            
+        [Symptom]
+            . build user variant failed.
+
+        [Cause]
+            . Becasue the ProGuard mechanism is enabled in Froyo for user variant, the model 0002 is user variant, The build process stops due to ProGuard mechanism make chaos in prebuild java library.          
+
+        [Solution]
+            . if you use prebuild java library in your APK build makefile, please add the following statement in makefile to diable ProGuard in your module.	LOCAL_PROGUARD_ENABLED := disabled
+
+        [Notes]
+            . none
+            
+Files :
+
+				* ./android/development/FIH/DbgCfgTool/GUI/Android.mk
+
+*-----------------------------------------------------------------------------
+*       0.001.0015                                       2010/10/15 09:20
+*-----------------------------------------------------------------------------
+Team:   Div2-SW6-MM
+Issuer: Kent Kwan 
+Mark:   Div2-SW6-MM-KK-porting-0
+IssueKeys:[SA4H7.B-37]
+Summary: 6030 Camera driver porting
+
+Do    : [Change]
+            . 6030 Camera driver porting
+            
+        [Symptom]
+            . None
+
+        [Cause]
+            . None        
+
+        [Solution]
+            . None
+
+        [Notes]
+            . None
+            
+Files :
+      * ./sa3/android/kernel/arch/arm/mach-msm/board_sax.c  
+      * ./sa3/android/kernel/arch/arm/configs/SA4I3_defconfig
+      + ./sa3/android/kernel/drivers/media/video/msm/mt9p111.c
+      + ./sa3/android/kernel/drivers/media/video/msm/mt9p111.h
+      + ./sa3/android/kernel/drivers/media/video/msm/mt9p111_reg.c
+      * ./LINUX/android/kernel/drivers/media/video/msm/Makefile
+      * ./LINUX/android/vendor/qcom/proprietary/mm-camera/targets/Android.mk
+      * ./LINUX/android/vendor/qcom/proprietary/mm-camera/targets/tgtcommon/sensor/sensor.c
+      + ./LINUX/android/vendor/qcom/proprietary/mm-camera/targets/tgtcommon/sensor/mt9p111/mt9p111.c
+      + ./LINUX/android/vendor/qcom/proprietary/mm-camera/targets/tgtcommon/sensor/mt9p111/mt9p111.h
+
+Reviewer:
+      Sendow Chen
+
+Review:
+        [History Details*]
+        [Code Review*]
+        [Verifications*]
+            [Function*]
+            [Quick Test]
+
+*-----------------------------------------------------------------------------
+*       0.001.0014                                       2010/10/14 22:10
+*-----------------------------------------------------------------------------
+Team:   SW2-5-1
+Issuer: Bryan Hsieh 
+Mark:   SW2-5-1-BH-DbgCfgTool-02
+IssueKeys:[SA4H7.B-33]
+Summary: Sync OME PROC COMM cmd_parameter return address
+
+Do    : [Change]
+            . Sync OME PROC COMM cmd_parameter return address
+            . Add default reset when #7995 NV is data crash when DbgCfgTool module init
+            
+        [Symptom]
+            . NV reading value is wrong
+
+        [Cause]
+            . In FXX, OEM PROC COMM - "PCOM_CUSTOMER_CMD1"(CMD_DATA) return value starts in cmd_para[0]
+            . In SAX, OEM PROC COMM - "PCOM_CUSTOMER_CMD1"(CMD_DATA) return value starts  in cmd_para[1]            
+
+        [Solution]
+            . Add build flag to seperate memcpy in proc_comm.c
+
+        [Notes]
+            . the proc_comm.c related to SAX's appsboot part is in SA3 project dependent code base, don't need to use build flag
+            
+Files :
+
+				* ./android/bootable/bootloader/lk/platform/msm_shared/proc_comm.c
+				* ./android/kernel/arch/arm/mach-msm/proc_comm.c
+				* ./android/kernel/arch/arm/mach-msm/dbgcfgtool.c
+
+*-----------------------------------------------------------------------------
+*       0.001.0013                                       2010/10/14 19:35
+*-----------------------------------------------------------------------------
+Issuer: Ronjon Lin
+Mark:   None
+IssueKeys:[SA4H7.B-27]
+
+Do    : [Change]
+            . Porting msm_battery, gas gauage ds2786
+
+        [Symptom]
+            . The capacity value calculation of Qualcomm's soultion bases on
+              measure the voltage of battery cell and it may change quickly
+              with different system loading situation.
+
+        [Cause]
+            . Feature enhancement.
+
+
+        [Solution]
+            . Remove the board check code.
+            . Add gas gauge driver to help battery driver reports accuracy
+              infomation to user.
+
+        [Notes]
+            . If you want to debug the battery driver, you can enable the debug
+              message by setting "#define DEBUG_BATT  1"
+ 			. charging function is not workable, and will add the feature in usb driver
+        [Expose]
+            . No
+
+Files :    
+      * ./sa3/android/kernel/arch/arm/mach-msm/board_sax.c  
+      * ./sa3//android/kernel/drivers/power/msm_battery.c
+      + ./sa3//android/kernel/drivers/i2c/chips/ds2786_battery.c
+      + ./sa3//android/kernel/drivers/i2c/chips/Makefile
+      + ./sa3//android/kernel/include/linux/ds2786_battery.h
+	  * ./sa3/android/kernel/arch/arm/configs/SA4I3_defconfig
+	  * ./BSP/LINUX/android/kernel/init/FIH_Kconfig
+Reviewer:
+      Pence Ko
+
+Review:
+        [History Details*]
+        [Code Review*]
+        [Verifications*]
+            [Function*]
+            [Quick Test]
+*-----------------------------------------------------------------------------
+*       0.001.0012                                       2010/10/14 14:05
+*-----------------------------------------------------------------------------
+Team  : SW251-BSP
+Issuer: Jimmy Sung
+Mark  : 
+PCR   : None
+IssueKeys:[SA4H7.B-18]
+
+Do    : [Change]
+             porting SA3 FQC
+
+        [Symptom]
+             None
+
+        [Cause]
+             None
+
+        [Solution]
+             None
+
+        [Note]
+             None
+
+Files :
+        *.\android\development\FIH\FQC
+
+*-----------------------------------------------------------------------------
+*       0.001.0011                                       2010/10/13 22:30
+*-----------------------------------------------------------------------------
+Team  : SW252-BSP
+Issuer: Steven Yang
+Mark  : SW252-SY-SAX-Recovery-00
+PCR   : None
+IssueKeys:[SA4H7.B-32] 
+
+Do    : [Change]
+             1. Fix key mapping in recovery mode.
+             2. Add BACK_KEY to be SELECT_ITEM in recovery mode
+
+	    [Symptom]
+             1. User need to press Volume UP/DOWN twice to move select bar.
+             2. User can not select the item via BACK_KEY.
+
+        [Cause]
+             1. The original key behavior is changed by Fseries.
+
+        [Solution]
+             1. Add flag to change key behavior back to original one.
+             2. Add BACK_KEY to be SELECT_ITEM in recovery mode when enable
+                CONFIG_FIH_RECOVERY_BACK_KEY_AS_SELECT_ITEM.
+
+		[Note]
+		     None
+		     
+Files :
+        *.\android\kernel\init\FIH_Kconfig
+        *.\android\bootable\recovery\recovery.c
+        *.\android\bootable\recovery\default_recovery_ui.c
+
+*-----------------------------------------------------------------------------
+*       0.001.0010                                       2010/10/13 17:20
+*-----------------------------------------------------------------------------
+Team  : SW252-BSP
+Issuer: Rexer Lin
+Mark  : SW252-rexer-SAX-00
+PCR   : None
+IssueKeys:[SA4H7.B-11] 
+
+Do    : [Change]
+             1. enable adqinfo for SAX
+             		 
+	    [Symptom]
+                
+        [Cause]
+
+        [Solution]
+             1. porting from BSP5310
+			    
+		[Note]
+		     1. other files are in patch svn
+		     
+Files :
+       *.\android\kernel\arch\arm\mach-msm\Makefile
+	   
+*-----------------------------------------------------------------------------
+*       0.001.0009                                       2010/10/13 14:43
+*-----------------------------------------------------------------------------
+Team  : Div2-5-1
+Issuer: Ronjon Lin
+Mark  : None
+IssueKeys:[SA4H7.B-13]
+Summary: Modify the model id into recovery image and add splash, hidden image
+
+Do    : [Change]
+            - added patch script for SAX
+
+        [Symptom]
+            - None.
+
+        [Cause]
+            - None.
+
+        [Solution]
+            - None.
+
+        [Notes]
+            - None.
+
+        [Expose]
+            - None.
+
+Files :
+        * ./scripts/configs/prj_profile.sa1
+Reviewer:
+        Bruce Chiu
+
+Review:
+        [History Details*]
+        [Code Review*]
+        [Verifications*]
+            [Function*]
+            [Quick Test] OK
+*-----------------------------------------------------------------------------
+*       0.001.0008                                       2010/10/13 11:00
+*-----------------------------------------------------------------------------
+Team  : SW2-6-Multimedia
+Issuer: Robert Chuang
+Mark  : SW2-6-MM-RC-Audio_Porting-00
+IssueKeys:[None]
+Summary: Porting the audio path and the headset detect function to BSP6030
+
+Do    : [Change]
+            - Porting the audio path and the headset detect function to BSP6030
+
+        [Symptom]
+            - None.
+
+        [Cause]
+            - None.
+
+        [Solution]
+            - None.
+
+        [Notes]
+            - None.
+
+        [Expose]
+            - No.
+
+Files :
+		* ./sa3/android/kernel/arch/arm/configs/SA4I3_defconfig
+    * ./sa3/android/kernel/arch/arm/mach-msm/board-sax.c
+		+ ./sa3/android/kernel/arch/arm/mach-msm/qdsp5/headset_fih.c
+		+ ./sa3/android/kernel/arch/arm/mach-msm/qdsp5/Makefile
+		* ./sa3/android/kernel/arch/arm/mach-msm/Kconfig
+		* ./LINUX/android/kernel/drivers/switch/switch_gpio.c
+		* ./LINUX/android/kernel/arch/arm/mach-msm/qdsp5/snd.c
+
+Reviewer:
+       Seven Lin
+       
+Review:
+        [History Details*]
+        [Code Review*]
+        [Verifications*]
+            [Function*]
+            [Quick Test] OK       
+       
+*-----------------------------------------------------------------------------
+*       0.001.0007                                       2010/10/07 11:30
+*-----------------------------------------------------------------------------
+Team  : Div2-5-1
+Issuer: Jimmy Sung
+Mark  : Div2-D5-1-JS-BSP
+IssueKeys:[None]
+Summary: 6030 added patch script for SAX
+
+Do    : [Change]
+            - added patch script for SAX
+
+        [Symptom]
+            - None.
+
+        [Cause]
+            - None.
+
+        [Solution]
+            - None.
+
+        [Notes]
+            - None.
+
+        [Expose]
+            - None.
+
+Files :
+
+Reviewer:
+        Bruce Chiu
+
+Review:
+        [History Details*]
+        [Code Review*]
+        [Verifications*]
+            [Function*]
+            [Quick Test] OK
+
+*-----------------------------------------------------------------------------
+*       0.001.0006                                       2010/10/06 17:10
+*-----------------------------------------------------------------------------
+Team  : Div2-5-1
+Issuer: Jimmy Sung
+Mark  : Div2-D5-1-JS-BSP
+IssueKeys:[None]
+Summary: 6030 patch Ken's file for SA3 build pass
+
+Do    : [Change]
+            - patch Ken's file for SA3 build pass
+
+        [Symptom]
+            - None.
+
+        [Cause]
+            - None.
+
+        [Solution]
+            - None.
+
+        [Notes]
+            - None.
+
+        [Expose]
+            - None.
+
+Files :
+
+Reviewer:
+        Ken Chen
+
+Review:
+        [History Details*]
+        [Code Review*]
+        [Verifications*]
+            [Function*]
+            [Quick Test] OK
+*-----------------------------------------------------------------------------
+*       0.001.0005                                       2010/08/16 20:36
+*-----------------------------------------------------------------------------
+Team  : Div2
+Issuer: Fromker Gu
+Mark  : Div2-D5-Peripheral-FG-TouchPorting-00
+IssueKeys:[None]
+Summary: 6030 Porting touch screen driver.
+
+Do    : [Change]
+            - Porting touch screen driver.
+
+        [Symptom]
+            - None.
+
+        [Cause]
+            - None.
+
+        [Solution]
+            - Porting touch screen driver.
+
+        [Notes]
+            - None.
+
+        [Expose]
+            - None.
+
+Files :
+        * ./android/kernel/arch/arm/configs/SA401_defconfig
+        * ./android/kernel/arch/arm/mach-msm/board-msm7x27.c
+        * ./android/kernel/drivers/input/touchscreen/Makefile
+        + ./android/kernel/drivers/input/touchscreen/qt602240.c
+        + ./android/kernel/include/linux/qt602240.h
+        + ./android/kernel/include/linux/qt602240_info_block_driver.h
+        + ./android/kernel/include/linux/qt602240_std_objects_driver.h
+        + ./android/kernel/include/linux/qt602240_touch_driver.h
+
+Reviewer:
+        Kevin Wang
+
+Review:
+        [History Details*]
+        [Code Review*]
+        [Verifications*]
+            [Function*]
+            [Quick Test] OK
+
+*-----------------------------------------------------------------------------
+*       0.001.0004                                       2010/08/16 18:22
+*-----------------------------------------------------------------------------
+Team  : Div2
+Issuer: Bruce Chiu
+Mark  : None
+IssueKeys:No Issue Key
+Summary: Add ota build commands and Send FIH_MODEL_ID in the kernel build
+
+Do    : [Change]
+            . Add ota build commands and Send FIH_MODEL_ID in the kernel build
+
+        [Symptom]
+            . None
+
+        [Cause]
+            . None
+
+        [Solution]
+            . None
+
+        [Notes]
+            . To test the flag of model id, use the following code:
+                #ifdef CONFIG_FIH_MODEL_ID
+                    #if ( CONFIG_FIH_MODEL_ID == 7001 )
+                        #error "Model Id 7001"
+                    #else
+                        #error "Not Model Id 7001"
+                    #endif
+                #else
+                    #error "CONFIG_FIH_MODEL_ID not defined ....."
+                #endif
+
+        [Expose]
+            . No
+
+Files :
+        * ./scripts/functions.sh
+        * ./android/kernel/init/FIH_Kconfig
+
+Reviewer:
+        Ronjon Lin
+
+Review:
+        [History Details*]
+        [Code Review*]
+        [Verifications*]
+            [Function*]
+            [Quick Test]
+
+*-----------------------------------------------------------------------------
+*       0.001.0003                                       2010/08/16 11:40
+*-----------------------------------------------------------------------------
+Team  : Div2
+Issuer: Steven Yang
+Mark  : None
+IssueKeys:No Issue Key
+Summary: Fix the PHYS_OFFSET overwritten by wrong default config.
+
+Do    : [Change]
+            . Fix the PHYS_OFFSET overwritten by wrong default config.
+
+        [Symptom]
+            . After running "bld sa1 kconf", PHYS_OFFSET will be changed to
+              0x00200000.
+
+        [Cause]
+            . Default configuration is set by following Kconfig:
+              default "0x00200000" if !MSM_STACKED_MEMORY"
+
+        [Solution]
+            . Add FIH_PROJECT_SAX flag checking to set correct PHYS_OFFSET
+              default value to 0x12C00000.
+
+        [Notes]
+            . None
+
+        [Expose]
+            . No
+
+Files :
+	Kernel:
+        * ./android/kernel/arch/arm/mach-msm/Kconfig
+
+Reviewer:
+     	Abbott Chung
+
+Review:
+        [History Details*]
+        [Code Review*]
+        [Verifications*]
+            [Function*]
+            [Quick Test]
+
+*-----------------------------------------------------------------------------
+*       0.001.0002                                       2010/08/13 23:20
+*-----------------------------------------------------------------------------
+Team  : Div2
+Issuer: Steven Yang
+Mark  : None
+IssueKeys:No Issue Key
+Summary: Initial Porting of SAX
+
+Do    : [Change]
+            . Initial Porting of SAX
+
+        [Symptom]
+            . None
+
+        [Cause]
+            . None
+
+        [Solution]
+            . None
+
+        [Notes]
+            . None
+
+        [Expose]
+            . No
+
+Files :
+	Kernel:
+        * ./android/kernel/arch/arm/configs/SA401_defconfig
+        * ./android/kernel/arch/arm/mach-msm/nand_partitions.c
+        * ./android/kernel/arch/arm/mach-msm/Makefile.boot
+        * ./android/kernel/drivers/mtd/devices/msm_nand.c
+   Android:
+        * ./android/device/qcom/msm7627_surf/BoardConfig.mk
+	Boot Loader:
+        * ./android/bootable/bootloader/lk/project/msm7627_surf.mk
+        * ./android/bootable/bootloader/lk/target/msm7627_surf/init.c
+        * ./android/bootable/bootloader/lk/platform/msm_shared/nand.c
+        * ./android/bootable/bootloader/lk/platform/msm_shared/uart.c
+        * ./android/bootable/bootloader/lk/target/msm7627_surf/rules.mk
+
+Reviewer:
+     	Rexer Lin
+
+Review:
+        [History Details*]
+        [Code Review*]
+        [Verifications*]
+            [Function*]
+            [Quick Test]
+
+*-----------------------------------------------------------------------------
+*       0.001.0001                                       2010/08/13 14:22
+*-----------------------------------------------------------------------------
+Team  : Div2
+Issuer: Ronjon Lin
+Mark  : None
+IssueKeys:No Issue Key
+Summary: Change default field of the FIH_FXX flag to n
+
+Do    : [Change]
+            . Change default field of the FIH_FXX flag to n
+
+        [Symptom]
+            . None
+
+        [Cause]
+            . None
+
+        [Solution]
+            . None
+
+        [Notes]
+            . None
+
+        [Expose]
+            . No
+
+Files :
+        * ./android/kernel/init/FIH_Kconfig
+        * ./android/kernel/arch/arm/configs/SA4H7_defconfig
+        * ./android/kernel/arch/arm/configs/SA4I3_defconfig
+        * ./android/kernel/arch/arm/configs/SA401_defconfig                
+
+Reviewer:
+     	Bruce Chiu
+
+Review:
+        [History Details*]
+        [Code Review*]
+        [Verifications*]
+            [Function*]
+            [Quick Test]
+
+*-----------------------------------------------------------------------------
+*       0.001.0000                                       2010/08/09 19:32
+*-----------------------------------------------------------------------------
+Team  : Div2
+Issuer: Bruce Chiu
+Mark  : None
+IssueKeys:No Issue Key
+Summary: Add build environment
+
+Do    : [Change]
+            . Add bld introduction in ppt file format
+
+        [Symptom]
+            . None
+
+        [Cause]
+            . None
+
+        [Solution]
+            . None
+
+        [Notes]
+            . None
+
+        [Expose]
+            . No
+
+Files :
+        * ./scripts/logs/bld-The_Android_Build_Environment.ppt
+
+Reviewer:
+        Ronjon Lin
+
+Review:
+        [History Details*]
+        [Code Review*]
+        [Verifications*]
+            [Function*]
+            [Quick Test]
+
+*-----------------------------------------------------------------------------
+*       0.001.0000                                       2010/08/09 18:14
+*-----------------------------------------------------------------------------
+Team  : Div2
+Issuer: Bruce Chiu
+Mark  : None
+IssueKeys:No Issue Key
+Summary: Add build environment
+
+Do    : [Change]
+            . Add scripts & History_LINUX.txt
+            . Init kernel configurations
+
+        [Symptom]
+            . None
+
+        [Cause]
+            . None
+
+        [Solution]
+            . None
+
+        [Notes]
+            . None
+
+        [Expose]
+            . No
+
+Files :
+        * ./android/bootable/bootloader/lk/makefile
+        + ./android/kernel/History_LINUX.txt
+        + ./scripts
+        + ./android/kernel/init/FIH_Kconfig
+        * ./android/kernel/init/Kconfig
+        * ./android/device/qcom
+        * ./android/build/core/config.mk
+        * ./android/build/core/main.mk
+        * ./android/vendor/qcom/proprietary/common/scripts/rpcgen_apis.pl
+        * ./android/kernel/arch/arm/configs
+
+Reviewer:
+        Ronjon Lin
+
+Review:
+        [History Details*]
+        [Code Review*]
+        [Verifications*]
+            [Function*]
+            [Quick Test]

@@ -1,0 +1,128 @@
+comment "Camera Sensor Selection"
+config MT9T013
+	bool "Sensor mt9t013 (BAYER 3M)"
+	depends on MSM_CAMERA && !ARCH_MSM8X60
+	default y
+	---help---
+	  MICRON 3M Bayer Sensor with AutoFocus
+
+config MT9D112
+	bool "Sensor mt9d112 (YUV 2M)"
+	depends on MSM_CAMERA && !ARCH_MSM8X60
+	default y
+	---help---
+	  MICRON 2M YUV Sensor
+config IMX074
+	bool "Sensor IMX074 (BAYER 13.5M)"
+	depends on MSM_CAMERA && ARCH_MSM8X60
+	default y
+	---help---
+	SONY 13.5 MP Bayer Sensor
+config VX6953
+	bool "Sensor VX6953 (BAYER 5M)"
+	depends on MSM_CAMERA && ARCH_MSM7X30
+	default y
+	---help---
+	STM 5M Bayer Sensor with EDOF
+
+config MT9P012
+	bool "Sensor mt9p012 (BAYER 5M)"
+	depends on MSM_CAMERA && !ARCH_MSM8X60
+	default y
+	---help---
+	  MICRON 5M Bayer Sensor with Autofocus
+
+choice
+	prompt "AF module"
+	depends on MT9P012 && !ARCH_MSM8X60
+	default MSM_CAMERA_AF_FOXCONN
+
+config MSM_CAMERA_AF_FOXCONN
+	bool "FOXCONN Module"
+	help
+	  This driver supports FOXCONN AF module for 5M Bayer sensor
+
+config MSM_CAMERA_AF_BAM
+	bool "BAM Module"
+	help
+	  This driver supports BAM AF module for 5M Bayer sensor
+
+endchoice
+
+config MT9P012_KM
+	bool "Sensor mt9p012 KM module (BAYER 5M)"
+	depends on MSM_CAMERA && !ARCH_MSM8X60
+	default y
+	---help---
+	  MICRON 5M Bayer Sensor KM modules with Autofocus
+
+config S5K3E2FX
+	bool "Sensor s5k3e2fx (Samsung 5M)"
+	depends on MSM_CAMERA && !ARCH_MSM8X60
+	default y
+	---help---
+	  Samsung 5M with Autofocus
+
+# DMQ CAM++, jones
+config S5K5CAG
+	bool "Sensor s5k5cag (Samsung 3M)"
+	depends on MSM_CAMERA
+	default n
+	---help---
+	  Samsung 3M
+	  
+config OV5642
+	bool "Sensor ov5642"
+	depends on MSM_CAMERA
+	default y
+	---help---
+	  OV 5M	 
+	  
+config OV5642AF
+	bool "Sensor ov5642 AF"
+	depends on MSM_CAMERA
+	default y
+	---help---
+	  OV 5M	AF  
+	  
+config OV3642
+	bool "Sensor OV3642"
+	depends on MSM_CAMERA
+	default y
+	---help---
+	  OV 3M	  
+# DMQ CAM--, jones
+
+config MT9P111
+	bool "Sensor mt9p111 (SOC 5M)"
+	depends on MSM_CAMERA && !ARCH_MSM8X60
+	default n
+	---help---
+	  MICRON 5M Bayer Sensor with Autofocus 
+
+config HM0357
+	bool "Sensor hm0357 (VGA)"
+	depends on MSM_CAMERA && !ARCH_MSM8X60
+	default n
+	---help---
+	  HIMAX VGA Bayer Sensor 
+
+config VB6801
+	bool "Sensor vb6801"
+	depends on MSM_CAMERA && !ARCH_MSM8X60
+	---help---
+	  5M with flash
+
+config MSM_CAMERA_FLASH
+	bool "Qualcomm MSM camera flash support"
+	depends on MSM_CAMERA && !ARCH_MSM8X60
+	default y
+	---help---
+	  Enable support for LED flash for msm camera
+
+config MSM_GEMINI
+	tristate "Qualcomm MSM Gemini Jpeg Engine support"
+	depends on MSM_CAMERA
+	default M
+	---help---
+	  Enable support for Gemini Jpeg Engine
